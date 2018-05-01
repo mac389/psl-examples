@@ -1,6 +1,7 @@
 package org.linqs.psl.examples.simpleacquaintances;
 
 import org.linqs.psl.application.inference.InferenceApplication;
+import org.linqs.psl.application.inference.LazyMPEInference;
 import org.linqs.psl.application.inference.MPEInference;
 import org.linqs.psl.config.Config;
 import org.linqs.psl.database.Database;
@@ -114,8 +115,10 @@ public class Run {
 		inserter = dataStore.getInserter(Knows, obsPartition);
 		inserter.loadDelimitedData(Paths.get(DATA_PATH, "knows_obs.txt").toString());
 
+		/*
 		inserter = dataStore.getInserter(Knows, targetsPartition);
 		inserter.loadDelimitedData(Paths.get(DATA_PATH, "knows_targets.txt").toString());
+		*/
 
 		inserter = dataStore.getInserter(Knows, truthPartition);
 		inserter.loadDelimitedDataTruth(Paths.get(DATA_PATH, "knows_truth.txt").toString());
@@ -129,7 +132,8 @@ public class Run {
 
 		Database inferDB = dataStore.getDatabase(targetsPartition, [Lived, Likes] as Set, obsPartition);
 
-		InferenceApplication inference = new MPEInference(model, inferDB);
+		// InferenceApplication inference = new MPEInference(model, inferDB);
+		InferenceApplication inference = new LazyMPEInference(model, inferDB);
 		inference.inference();
 
 		inference.close();
