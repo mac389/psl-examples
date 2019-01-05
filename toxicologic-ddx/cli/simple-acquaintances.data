@@ -1,15 +1,16 @@
 predicates:
-  Knows/2: open
-  Likes/2: closed
-  Lived/2: closed
+  HasSympathomimeticToxidrome/1: open
+  Tachycardic/1: closed
+  Bradycardic/1: open 
 
 observations:
-  Knows : ../data/knows_obs.txt
-  Lived : ../data/lived_obs.txt
-  Likes : ../data/likes_obs.txt
+  HasSympathomimeticToxidrome : ../data/HasToxidrome_obs.txt
+  Tachycardic : ../data/Tachycardic_obs.txt
 
 targets:
-  Knows : ../data/knows_targets.txt
+  HasSympathomimeticToxidrome : ../data/HasToxidrome_targets.txt
+  Tachycardic : ../data/Tachycardic_targets.txt
 
 truth:
-  Knows : ../data/knows_truth.txt
+  HasSympathomimeticToxidrome : ../data/HasToxidrome_truth.txt
+  Tachycardic : ../data/Tachycardic_truth.txt
