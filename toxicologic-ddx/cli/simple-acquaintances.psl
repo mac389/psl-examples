@@ -1,6 +1,5 @@
 20:  Tachycardic (P1) -> HasSympathomimeticToxidrome(P1) ^2
 
-
 //Symptom closures
 Tachycardic(P1) = !Bradycardic(P1).
 
